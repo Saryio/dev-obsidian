@@ -10,4 +10,4 @@
 -  [ ] Flex
 -  [ ] Grid 
 
-![[css.png]]
+![](../resources/css.png)

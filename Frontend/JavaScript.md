@@ -6,6 +6,9 @@
 -  [x] Bibliotecas
 -  [x] Frameworks
 
+```javascript
+console.log("Hello, World!")
+```
 
 
-![[js.png]]
+![](../resources/js.png)

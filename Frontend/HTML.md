@@ -6,4 +6,4 @@
 -  [x] Atributos
 
 
-![[html.png]]
+![](../resources/html.png)

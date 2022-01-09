@@ -1,4 +1,4 @@
-# Samuel como Desenvolvedor
+# S. Antony como Desenvolvedor
 ## Motivação [[Sonho]]
 Gosto e objetivos pessoais 
 
@@ -6,12 +6,12 @@ Gosto e objetivos pessoais
 Websites, #servidores , aplicativos mobile, bancos de dados,  programas #backend #frontend
 
 ## Nível
-Júnior
+Desconhecido
 
 ## Linguagens
 [[Go]], [[Python]], [[PHP]], [[HTML]], [[CSS]], [[JavaScript]], [[TypeScript]] 
 
 ## Frameworks
-[[Next.js]], [[CodeIgniter4]], [[Tailwindcss]], [[Angular]] 
+[[Next.js]], [[React]], [[CodeIgniter4]], [[Tailwindcss]], [[Angular]], [[NestJS]] 
 
-![[beauty_nature.jpeg]]
+![](./resources/beauty_nature.jpeg)
