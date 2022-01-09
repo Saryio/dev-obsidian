@@ -1,6 +1,6 @@
 
 # JavaScript
-## #frontend  
+## #frontend #language
 -  [x] Referenciar elementos
 -  [x] HTTP Requests (fetch, xhr)
 -  [x] Bibliotecas

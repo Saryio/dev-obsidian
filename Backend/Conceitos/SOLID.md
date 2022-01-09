@@ -1,9 +1,9 @@
 
-# S.O.L.I.D. #BoasPraticas
+# S.O.L.I.D. #BoasPraticas #CleanCode
+![](../../resources/cleancode.jpeg)
+## Conjunto de princípios da [[POO]]
 
-## Conjunto de princípios da POO
-
-# S - Single Responsibility Principle
+# S - Princípio de Responsabilidade Única
 ##### *"Uma classe deve ter apenas um motivo para mudar"*
 ## Esse princípio trata da coesão das classes, ou seja, que suas funcionalidades sejam específicas para a classe.
 ```javascript
@@ -27,8 +27,9 @@ melhor:
 		perguntar(){}
 	}
 ```
+#language JavaScript
 
-# O - Open-Closed Principle
+# O - Princípio Open-Closed
 ##### *"As entidades de software (classes, módulos, funções etc.) devem ser abertas para ampliação, mas fechadas para serem modificadas"*.
 ## De curto e grosso modo, entidades de software que seguem esse princípio não devem ser modificadas com alterações no código fonte, apenas ampliadas, fazendo uso de interfaces, heranças e composições.
 ```php
@@ -104,8 +105,8 @@ melhor:
 
 		}
 ```
-
-# L - Liskov Substitution Principle
+#language PHP
+# L - Princípio de Substituição de Liskov
 ##### *"Uma classe derivada deve ser substituível por sua classe base."*
 ## Ou seja, quando novos comportamentos e recursos precisam ser adicionados no software, devemos estender e não alterar o código fonte original.
 
@@ -207,7 +208,196 @@ melhor:
 	imprimeNome($objeto2); // Meu nome é B
 	
 ```
+#language PHP
+# I - Princípio da Segregação de Interface
+##### *"Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar."*
+## Esse princípio diz que é melhor criar interfaces mais específicas ao invés de termos uma única interface genérica.
 
-# I - Liskov Substitution Principle
-##### *"Uma classe derivada deve ser substituível por sua classe base."*
-## Mesmo a herança sendo um mecanismo poderoso, ela deve ser utilizada de forma contextualizada e moderada, evitando os casos de classes serem estendidas apenas por possuírem algo em comum.
+```php
+	ruim:
+	// Neste exemplo podemos ver que Pinguim é uma ave, porém não voa e está implementando funções que não são atribuíveis para ela
+
+	interface Aves
+	{
+		public function setLocalizacao($longitude, $latitude);
+		
+		public function setAltitude($altitude);
+		
+		public function renderizar();
+	}
+
+	class Papagaio implements Aves
+	{
+		public function setLocalizacao($longitude, $latitude)
+		{
+			//Faz alguma coisa
+		}
+	
+		public function setAltitude($altitude)
+		{
+			//Faz alguma coisa
+		}
+		
+		public function renderizar()
+		{
+			//Faz alguma coisa
+		
+		}
+	
+	}
+
+	class Pinguim implements Aves
+	{
+		public function setLocalizacao($longitude, $latitude)
+		{
+			//Faz alguma coisa
+		
+		}
+		
+			// A Interface Aves está forçando a Classe Pinguim a implementar esse método.
+			
+			// Isso viola o príncipio ISP
+		
+		public function setAltitude($altitude)
+		{
+		
+			//Não faz nada... Pinguins são aves que não voam!
+		
+		}
+		public function renderizar()
+		{
+			//Faz alguma coisa
+		
+		}
+	
+	}
+
+```
+
+```php
+	melhor:
+	interface Aves
+	{
+		public function setLocalizacao($longitude, $latitude);
+		
+		public function renderizar();
+	}
+
+	interface AvesQueVoam extends Aves
+	{
+		public function setAltitude($altitude);
+	}
+	
+	class Papagaio implements AvesQueVoam
+	{
+		public function setLocalizacao($longitude, $latitude)
+		{
+			//Faz alguma coisa
+		}
+		
+		public function setAltitude($altitude)
+		{
+			//Faz alguma coisa
+		
+		}
+		
+		public function renderizar()
+		{
+			//Faz alguma coisa
+		
+		}
+	
+	}
+	
+	class Pinguim implements Aves
+	{
+		public function setLocalizacao($longitude, $latitude)
+		{
+			//Faz alguma coisa
+		
+		}
+		
+		public function renderizar()
+		{
+			//Faz alguma coisa
+		
+		}
+	
+	}
+
+```
+#language PHP
+
+# D - Princípio de Inversão de Dependência
+##### *"Dependa de abstrações e não de implementações."*
+### 1. Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender da abstração.
+
+### 2. Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações...
+```php
+	ruim: 
+	use MySQLConnection;
+	
+	class PasswordReminder
+	{
+		private $dbConnection;
+	
+		public function __construct()
+		{
+			$this->dbConnection = new MySQLConnection();
+		}
+		// Faz alguma coisa
+	}
+
+	Injeção de depêndencia porém ainda ruim:
+	use MySQLConnection;
+
+	class PasswordReminder
+	{
+		private $dbConnection;
+
+		public function __construct(MySQLConnection $dbConnection)
+		{
+			$this->dbConnection = $dbConnection;
+		
+		}
+		// Faz alguma coisa
+	
+	}
+```
+```php
+	melhor:
+	interface DBConnectionInterface
+	{
+		public function connect();
+	}
+	
+	class MySQLConnection implements DBConnectionInterface
+	{
+		public function connect()
+		{
+			// ...
+		}
+	}
+	
+	class OracleConnection implements DBConnectionInterface
+	{
+		public function connect()
+		{
+			// ...
+		}
+	}
+	
+	class PasswordReminder
+	{
+		private $dbConnection;
+		
+		public function __construct(DBConnectionInterface $dbConnection) 
+		{
+			$this->dbConnection = $dbConnection;
+		}
+		// Faz alguma coisa
+	}
+```
+
+## A sistemática dos princípios **SOLID** tornam o software mais robusto, escalável e flexível, deixando-o tolerante a mudanças, facilitando a implementação de novos requisitos para a evolução e manutenção do sistema.
+<https://medium.com/desenvolvendo-com-paixao/o-que-%C3%A9-solid-o-guia-completo-para-voc%C3%AA-entender-os-5-princ%C3%ADpios-da-poo-2b937b3fc530/>
