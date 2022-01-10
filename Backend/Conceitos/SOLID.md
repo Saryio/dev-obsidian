@@ -1,7 +1,7 @@
 
 # S.O.L.I.D. #BoasPraticas #CleanCode
-![](../../resources/cleancode.jpeg)
-## Conjunto de princípios da [[POO]]
+![Clean code](../../resources/cleancode.jpeg)
+## Conjunto de princípios da #POO
 
 # S - Princípio de Responsabilidade Única
 ##### *"Uma classe deve ter apenas um motivo para mudar"*
@@ -112,7 +112,7 @@ melhor:
 
 ## Mesmo a herança sendo um mecanismo poderoso, ela deve ser utilizada de forma contextualizada e moderada, evitando os casos de classes serem estendidas apenas por possuírem algo em comum.
 ```php
-	ruim:
+	//ruim:
 	# - Sobrescrevendo um método que não faz nada...
 	# - Um voluntário não tem remuneração, então nao deveria ser extendida por 
         #ContratoDeTrabalho
@@ -176,8 +176,7 @@ melhor:
 ```
 
 ```php
-	na prática:
-
+	//na prática:
 	class A
 	{
 		public function getNome()
@@ -214,7 +213,7 @@ melhor:
 ## Esse princípio diz que é melhor criar interfaces mais específicas ao invés de termos uma única interface genérica.
 
 ```php
-	ruim:
+	//ruim:
 	// Neste exemplo podemos ver que Pinguim é uma ave, porém não voa e está implementando funções que não são atribuíveis para ela
 
 	interface Aves
@@ -275,7 +274,7 @@ melhor:
 ```
 
 ```php
-	melhor:
+	//melhor:
 	interface Aves
 	{
 		public function setLocalizacao($longitude, $latitude);
@@ -334,7 +333,7 @@ melhor:
 
 ### 2. Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações...
 ```php
-	ruim: 
+	//ruim: 
 	use MySQLConnection;
 	
 	class PasswordReminder
@@ -348,7 +347,7 @@ melhor:
 		// Faz alguma coisa
 	}
 
-	Injeção de depêndencia porém ainda ruim:
+	//Injeção de depêndencia porém ainda ruim:
 	use MySQLConnection;
 
 	class PasswordReminder
@@ -365,7 +364,7 @@ melhor:
 	}
 ```
 ```php
-	melhor:
+	//melhor:
 	interface DBConnectionInterface
 	{
 		public function connect();

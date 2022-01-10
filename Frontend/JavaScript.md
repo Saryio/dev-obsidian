@@ -1,6 +1,6 @@
 
 # JavaScript
-## #frontend #language
+## #frontend #language #POO
 -  [x] Referenciar elementos
 -  [x] HTTP Requests (fetch, xhr)
 -  [x] Bibliotecas

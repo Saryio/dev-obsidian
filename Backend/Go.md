@@ -1,7 +1,7 @@
 
 # Go Lang
 
-## #servidores #backend #language
+## #servidores #backend #language #POO 
 -  [ ] Servidor HTTP
 -  [ ] API REST Server
 -  [ ] POO com structures
