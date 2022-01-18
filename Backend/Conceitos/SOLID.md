@@ -1,5 +1,5 @@
 
-# S.O.L.I.D. #BoasPraticas #CleanCode
+# S.O.L.I.D. #BoasPraticas #CleanCode #solid 
 ![Clean code](../../resources/cleancode.jpeg)
 ## Conjunto de princípios da #POO
 

@@ -1,4 +1,4 @@
-# Observer #design/pattern
+# Observer #design/pattern #POO 
 ## **Observer** é um padrão de design de código que permite observar o estado de uma classe e atualizar se quiser o próprio estado.
 ![Observer](../../../resources/observer.png)
 
@@ -90,3 +90,7 @@
 ```typescript
 	weatherStation.setTemperature(16)
 ```
+
+#solid
+-   _Princípio aberto / fechado_ . Você pode introduzir novas classes de assinante sem precisar alterar o código do editor (e vice-versa se houver uma interface do editor).
+-    Você pode estabelecer relações entre objetos em tempo de execução.
